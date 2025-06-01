@@ -39,6 +39,7 @@ dependencies:
   hive: ^2.2.3
   bloc: ^9.0.0
   meta: ^1.15.0
+  flutter_bloc: ^9.1.1
   
   
 
