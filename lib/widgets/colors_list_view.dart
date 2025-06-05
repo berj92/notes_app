@@ -15,17 +15,23 @@ class ColorItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return isActive
-        ? CircleAvatar(
-            radius: 38,
-            backgroundColor: Colors.white,
+        ? Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
             child: CircleAvatar(
-              radius: 34,
-              backgroundColor: color,
+              radius: 32,
+              backgroundColor: Colors.white,
+              child: CircleAvatar(
+                radius: 28,
+                backgroundColor: color,
+              ),
             ),
           )
-        : CircleAvatar(
-            radius: 38,
-            backgroundColor: color,
+        : Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 6),
+            child: CircleAvatar(
+              radius: 26,
+              backgroundColor: color,
+            ),
           );
   }
 }
@@ -43,23 +49,20 @@ class _ColorsListViewState extends State<ColorsListView> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 38 * 2,
+      height: 32 * 2,
       child: ListView.builder(
         itemCount: kColors.length,
         scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 6),
-            child: GestureDetector(
-              onTap: () {
-                currentIndex = index;
-                BlocProvider.of<AddNoteCubit>(context).color = kColors[index];
-                setState(() {});
-              },
-              child: ColorItem(
-                isActive: currentIndex == index,
-                color: kColors[index],
-              ),
+        itemBuilder: (context, int index) {
+          return GestureDetector(
+            onTap: () {
+              currentIndex = index;
+              BlocProvider.of<AddNoteCubit>(context).color = kColors[index];
+              setState(() {});
+            },
+            child: ColorItem(
+              isActive: currentIndex == index,
+              color: kColors[index],
             ),
           );
         },

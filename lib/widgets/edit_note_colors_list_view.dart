@@ -24,7 +24,7 @@ class _EditNoteColorListState extends State<EditNoteColorList> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 38 * 2,
+      height: 32 * 2,
       child: ListView.builder(
         itemCount: kColors.length,
         scrollDirection: Axis.horizontal,

@@ -29,12 +29,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
         autovalidateMode: autovalidateMode,
         child: Column(
           children: [
-            const SizedBox(height: 32),
+            const SizedBox(
+              height: 32,
+            ),
             CustomTextField(
               onSaved: (value) {
                 title = value;
               },
-              hint: 'title',
+              hint: "title",
             ),
             const SizedBox(
               height: 16,
@@ -43,15 +45,15 @@ class _AddNoteFormState extends State<AddNoteForm> {
               onSaved: (value) {
                 subTitle = value;
               },
-              hint: 'content',
+              hint: "content",
               maxLines: 5,
             ),
             const SizedBox(
-              height: 32,
+              height: 16,
             ),
             ColorsListView(),
             const SizedBox(
-              height: 32,
+              height: 16,
             ),
             BlocBuilder<AddNoteCubit, AddNoteState>(
               builder: (context, state) {
@@ -62,7 +64,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                       formKey.currentState!.save();
                       var currentDate = DateTime.now();
                       var formatedCurrentDate =
-                          DateFormat('dd-mm-yyyy').format(currentDate);
+                          DateFormat("yyyy-MM-dd  kk:mm").format(currentDate);
                       var noteModel = NoteModel(
                         title: title!,
                         subTitle: subTitle!,

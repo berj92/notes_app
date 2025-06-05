@@ -14,7 +14,7 @@ class CustomBotton extends StatelessWidget {
         height: 55,
         decoration: BoxDecoration(
           color: kPrimaryColor,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(16),
         ),
         child: Center(
           child: isLoading
@@ -23,13 +23,14 @@ class CustomBotton extends StatelessWidget {
                   width: 24,
                   child: const CircularProgressIndicator(
                     color: Colors.black,
+                    backgroundColor: Colors.green,
                   ),
                 )
               : const Text(
                   'Add',
                   style: TextStyle(
                     color: Colors.black,
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
